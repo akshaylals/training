@@ -43,3 +43,14 @@ print('isalnum()', 'h e l l o 1 2 3 4'.isalnum())
 print("'hello'.islower()", 'hello'.islower())
 print("'Hello World'.istitle()", 'Hello World'.istitle())
 print("'HELLO'.isupper()", 'HELLO'.isupper())
+
+
+seperator = '-'
+myTuple = ('h', 'e', 'l', 'l', 'o')
+myNewString = seperator.join(myTuple)
+print(myNewString)
+print(myNewString.upper())
+
+print('Hello World'.replace('o', 'i'))
+print('Hello World'.replace('o', 'i', 1))
+print('Hello world'.split(' '))
