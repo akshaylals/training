@@ -25,14 +25,21 @@ print('Hello Good Morning'.count('d', 3))
 print('Hello Good Morning'.count('d', 3, 13))
 
 myString = 'superman'
-print(myString.endswith('man'))
-print(myString.endswith('man', 3))
-print(myString.endswith('man', 2, 6))
-print(myString.endswith(('man', 'ma'), 2, 6))
-print('Postman'.endswith(('man', 'ma'), 2, 6))
+print("endswith('man')", myString.endswith('man'))
+print("endswith('man', 3)", myString.endswith('man', 3))
+print("endswith('man', 2, 6)", myString.endswith('man', 2, 6))
+print("endswith(('man', 'ma'), 2, 6)", myString.endswith(('man', 'ma'), 2, 6))
+print("endswith(('man', 'ma'), 2, 6)", 'Postman'.endswith(('man', 'ma'), 2, 6))
 
 print('Hello Good Morning'.find('Go'))
 print('Hello Good Morning'.find('Go', 4))
 print('Hello Good Morning'.find('Go', 4, 15))
 print('Hello Good Morning'.find('kk'))
-print('Hello Good Morning'.index('kk'))
+# print('Hello Good Morning'.index('kk'))
+
+print('isalnum()', 'hello1234'.isalnum())
+print('isalnum()', 'h e l l o 1 2 3 4'.isalnum())
+
+print("'hello'.islower()", 'hello'.islower())
+print("'Hello World'.istitle()", 'Hello World'.istitle())
+print("'HELLO'.isupper()", 'HELLO'.isupper())
