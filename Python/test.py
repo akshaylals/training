@@ -24,3 +24,15 @@ print('Hello Good Morning'.count('d', 3))
 # count from index 3 to 10-1
 print('Hello Good Morning'.count('d', 3, 13))
 
+myString = 'superman'
+print(myString.endswith('man'))
+print(myString.endswith('man', 3))
+print(myString.endswith('man', 2, 6))
+print(myString.endswith(('man', 'ma'), 2, 6))
+print('Postman'.endswith(('man', 'ma'), 2, 6))
+
+print('Hello Good Morning'.find('Go'))
+print('Hello Good Morning'.find('Go', 4))
+print('Hello Good Morning'.find('Go', 4, 15))
+print('Hello Good Morning'.find('kk'))
+print('Hello Good Morning'.index('kk'))
