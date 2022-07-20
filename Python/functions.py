@@ -97,3 +97,67 @@ print('Value of total :', sum(20, 20))
 
 toIntList = lambda s: [int(i) for i in s.split()]
 print(toIntList('1 2 3 4 5'))
+
+
+###########################################
+# Python functions as First class Objects #
+###########################################
+
+# Rights of a fn in python is similar to the
+# rights of a variable
+# 1) Assign a function to a variable
+def myFunc1():
+    print('This is myFunc1')
+
+# Assigning function to variable
+myMyFunction1 = myFunc1
+
+myFunc1()       # call fn directly
+myMyFunction1() # call fn via variable
+
+print()
+# 2) Pass a fn to another fn
+def myFunc2(receivedFn):
+    receivedFn()
+    receivedFn()
+
+myFunc2(myFunc1)
+
+print()
+# 3) Return a fn from another fn
+def returnToUpper():
+    return str.upper
+
+toUpperFnRef = returnToUpper()
+print(toUpperFnRef('hello world'))
+print(returnToUpper()('hello'))
+
+
+print()
+# 4) Define a fn inside another fn
+def outer():
+    print('outer fn')
+
+    def firstInner():
+        print('first inner fn')
+
+    def secondInner():
+        print('second inner fn')
+    
+    firstInner()
+    secondInner()
+
+outer()
+
+
+print()
+# 5) Inner fn can access variables in the enclosing fn
+def outer(myGreeting):
+    print('outer fn says', myGreeting)
+
+    def firstInner():
+        print('inner fn says', myGreeting)
+    return firstInner
+
+innerFn = outer('Hello World')
+innerFn()
