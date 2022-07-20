@@ -41,3 +41,59 @@ def calculations(a, b):
 
 for value in calculations(49, 45):
     print(value)
+
+# Variable scope
+message1 = 'I am Global Variable'
+def myFunction():
+    global message1
+    print('Inside the function')
+    # Global variables are accessibel inside a fn
+    print(message1)
+    message2 = 'I am Local Variable'
+    print(message2)
+    message1 = 'Modifying the global variable'
+
+myFunction()
+print(message1)
+# print(message2)
+
+
+# Passing Arbitary List as Argument
+def make_pizza(size, *toppings):
+    print(f'Making a {size} - inch pizza with toppings:')
+    for topping in toppings:
+        print(f'- {topping}')
+
+make_pizza(16, 'pepperoni')
+make_pizza(16, 'mushrooms', 'green peppers')
+
+# Required argument
+def printme(str):
+    print(str)
+
+printme('test')
+printme(str='test')
+
+# Required argument
+def printinfo(name, age):
+    print(f'{name}, {age}')
+
+printinfo('Tom', 10)
+printinfo(age=10, name='Tom')
+
+# optional keyword arguments
+def printinfo(**kwargs):
+    for key, value in kwargs.items():
+        print(f'{key}: {value}')
+
+printinfo(age=10, name='Tom')
+
+
+# Anonymous (Lambda) functions
+sum = lambda arg1, arg2: arg1 + arg2
+print('Value of total :', sum(10, 20))
+print('Value of total :', sum(20, 20))
+
+
+toIntList = lambda s: [int(i) for i in s.split()]
+print(toIntList('1 2 3 4 5'))
