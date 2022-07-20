@@ -52,3 +52,25 @@ print(myCalendar)
 myCalendar = calendar.prcal(2022)
 print(myCalendar)
 
+
+
+# Math
+import math
+
+number = 2e-7
+print(math.log10(math.fabs(number)))
+print('The given number (x) is:', number)
+print('e^x (using exp() function) is :', math.exp(number)-1)
+
+print(math.pow(4, 2))
+print(4**2)
+print(math.floor(15.32456))
+print(math.ceil(15.32456))
+print(math.fabs(-123))
+print(math.factorial(10))
+print(math.modf(3.14))
+
+
+# Import custom module
+from prime import checkIfPrime
+print(checkIfPrime(15))
