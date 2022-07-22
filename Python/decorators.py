@@ -158,3 +158,77 @@ def myFnToPass(myString, myString2):
     return returnString
 
 print(myFnToPass('hello', 'world'))
+
+print('-' * 60)
+
+# Decorator with classes
+print('Decorator with classes')
+print()
+
+# Decorating methods of a class
+# @classmethod and @staticmethod
+class Hero:
+    @classmethod
+    def say_class_hello(cls):
+        if (cls.__name__ == 'HeroSon'):
+            print('Hi Prince')
+        elif (cls.__name__ == 'HeroDaughter'):
+            print('Hi Princess')
+    
+    @staticmethod
+    def say_hello():
+        print('Hello...')
+
+
+class HeroSon(Hero):
+    def say_son_hello(self):
+        print('Hello Son!')
+
+
+class HeroDaughter(Hero):
+    def say_daughter_hello(self):
+        print('Hello Daughter!')
+
+
+son = HeroSon()
+son.say_class_hello()
+son.say_son_hello()
+son.say_hello()
+
+daughter = HeroDaughter()
+daughter.say_class_hello()
+daughter.say_daughter_hello()
+daughter.say_hello()
+
+print('-' * 60)
+
+# @property
+class House:
+    def __init__(self, price):
+        self.__price = price
+
+    @property
+    def price(self):
+        return self.__price
+    
+    @price.setter
+    def price(self, new_price):
+        if new_price > 0 and isinstance(new_price, float):
+            self.__price = new_price
+        else:
+            print('Please enter a valid price')
+
+    @price.deleter
+    def price(self):
+        del self.__price
+
+
+house = House(50000.0)
+print(house.price)
+house.price = 40000.0
+print(house.price)
+del house.price
+# print(house.price)
+
+print('-' * 60)
+
