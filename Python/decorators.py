@@ -105,3 +105,56 @@ print()
 myFnToPass2('hello', 'world')
 
 print('-' * 60)
+
+# Returning values from decorated fn
+@myDecorator
+def myFnToPass(myString, myString2):
+    returnString = 'Passing into decorator and printing {} {}'.format(myString, myString2)
+    return returnString
+
+# Returns none
+print(myFnToPass('hello', 'world'))
+
+print('-' * 60)
+
+# Returns the value
+def myDecorator(myFunc):
+    @functools.wraps(myFunc)
+    def innerWrapper(*args):
+        print('Before the fn call')
+        value = myFunc(*args)
+        print('After the fn call')
+        return value
+
+    return innerWrapper
+
+@myDecorator
+def myFnToPass(myString, myString2):
+    returnString = 'Passing into decorator and printing {} {}'.format(myString, myString2)
+    return returnString
+
+# Returns the string
+print(myFnToPass('hello', 'world'))
+
+print('-' * 60)
+
+def acceptDecorator(myString3):
+    def myDecorator(myFunc):
+        @functools.wraps(myFunc)
+        def innerWrapper(*args):
+            print('string from decorator', myString3)
+            print('Before the fn call')
+            value = myFunc(*args)
+            print('After the fn call')
+            return value
+
+        return innerWrapper
+
+    return myDecorator
+
+@acceptDecorator('testing string into decorator')
+def myFnToPass(myString, myString2):
+    returnString = 'Passing into decorator and printing {} {}'.format(myString, myString2)
+    return returnString
+
+print(myFnToPass('hello', 'world'))
