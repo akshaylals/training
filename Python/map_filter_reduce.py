@@ -19,7 +19,7 @@ x = map(myMapFn, (1, 2, 3, 4, 5))
 print(tuple(x))
 
 # A simple program to input numbers and power and print powers
-# print('\n'.join(tuple(map(lambda a, p = int(input('Enter power: ')): f'{a} ^ {p} = {int(a) ** p}', input('Enter list of numbers: ').split()))))
+print('\n'.join(tuple(map(lambda a, p = int(input('Enter power: ')): f'{a} ^ {p} = {int(a) ** p}', input('Enter list of numbers: ').split()))))
 
 
 
