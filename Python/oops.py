@@ -128,3 +128,172 @@ print(b)
 print(b.fact())
 print(a.fact())
 print(b.area())
+
+print('-' * 60)
+
+# Abstract Class
+print('Abstract Class')
+print('-' * 15)
+
+
+class Lion:
+    def give_food(self):
+        print('Feeding a lion with raw meat!')
+        
+
+class Panda:
+    def feed_animal(self):
+        print('Feeding a panda with bamboo!')
+        
+        
+class Snake:
+    def feed_snake(self):
+        print('Feeding a snake with mice!')
+
+
+simba       = Lion()
+kungfupanda = Panda()
+kingcobra   = Snake()
+
+simba.give_food()
+kungfupanda.feed_animal()
+kingcobra.feed_snake()
+
+print('-' * 60)
+
+# Abstract class
+from abc import ABC, abstractmethod
+# ABC is Abstract Base Class
+# from abc module, we have to import ABC and decorator abstractmethod
+
+class Animal(ABC):      # Inherit from ABC
+    @abstractmethod     # Decorator to define abstract method
+    def feed(self):
+        pass
+
+
+class Lion(Animal):
+    def feed(self):
+        print('Feeding a lion with raw meat!')
+        
+
+class Panda(Animal):
+    def feed(self):
+        print('Feeding a panda with bamboo!')
+        
+        
+class Snake(Animal):
+    def feed(self):
+        print('Feeding a snake with mice!')
+
+
+zoo = [Lion(), Panda(), Snake()]
+
+for animal in zoo:
+    animal.feed()
+
+print('-' * 60)
+
+
+class Animal(ABC):
+    @abstractmethod
+    def feed(self):
+        pass
+
+    @abstractmethod
+    def do(self, action):   #action is abstract fn parameter
+        pass
+
+
+class Lion(Animal):
+    def feed(self):
+        print('Feeding a lion with raw meat!')
+    
+    def do(self, action, time):
+        print('Doing', action, 'at', time)
+        
+
+class Panda(Animal):
+    def feed(self):
+        print('Feeding a panda with bamboo!')
+    
+    def do(self, action, time):
+        print('Doing', action, 'at', time)
+        
+        
+class Snake(Animal):
+    def feed(self):
+        print('Feeding a snake with mice!')
+    
+    def do(self, action, time):
+        print('Doing', action, 'at', time)
+
+
+zoo = [Lion(), Panda(), Snake()]
+
+for animal in zoo:
+    animal.feed()
+    animal.do('feeding', '10:10AM')
+
+print('-' * 60)
+
+# Abstract property
+class Animal(ABC):
+    @property
+    @abstractmethod
+    def diet(self):
+        pass
+
+    @property
+    def food_eaten(self):
+        return self.__food
+    
+    @food_eaten.setter
+    def food_eaten(self, food):
+        if food in self.diet:
+            self.__food = food
+        else:
+            raise ValueError('this animal doesn\'t eat this')
+
+    @abstractmethod
+    def feed(self):
+        pass
+
+
+class Lion(Animal):
+    @property
+    def diet(self):
+        return ['antelope', 'cheetah', 'buffalo']
+
+    def feed(self):
+        print(f'Feeding a lion with {self.food_eaten}!')
+        
+
+class Panda(Animal):
+    @property
+    def diet(self):
+        return ['bamboo', 'leaves']
+
+    def feed(self):
+        print(f'Feeding a panda with {self.food_eaten}!')
+        
+        
+class Snake(Animal):
+    @property
+    def diet(self):
+        return ['mice', 'rabbit']
+
+    def feed(self):
+        print(f'Feeding a snake with {self.food_eaten}!')
+        
+
+simba       = Lion()
+kungfupanda = Panda()
+kingcobra   = Snake()
+
+simba.food_eaten        = 'buffalo'
+kungfupanda.food_eaten  = 'bamboo'
+kingcobra.food_eaten    = 'mice'
+
+for animal in [simba, kungfupanda, kingcobra]:
+    animal.feed()
