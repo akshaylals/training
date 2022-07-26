@@ -2,3 +2,4 @@ envs/
 *.txt
 
 !myfile.txt
+!requirements.txt
