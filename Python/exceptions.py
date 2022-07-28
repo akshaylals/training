@@ -41,3 +41,56 @@ try:
         f.close()
 except:
     print('The file cannot be opened')
+
+
+x = 0
+try:
+    if x == 0:
+        raise Exception('Number cannot be zero')
+except Exception as e:
+    print('Error occured:', type(e).__name__, e)
+
+
+y = 'foo'
+
+try:
+    if type(y) is not int:
+        raise TypeError('Not an int')
+except Exception as e:
+    print('Error occured:', type(e).__name__, e)
+
+
+# Create user-defined Exception class
+class MyError(Exception):
+    def __init__(self, value) -> None:
+        self.value = value
+    
+    def __str__(self) -> str:
+        return repr(self.value)
+
+
+try:
+    x = 0
+    if x == 0:
+        raise MyError('The number is Zero !!')
+except Exception as e:
+    print(type(e).__name__, e)
+
+
+# Exception derrived class being inherited by another class
+class MyError(Exception):
+    pass
+
+
+class DivideByZero(MyError):
+    pass
+
+
+try:
+    x = 0
+    if x == 0:
+        raise DivideByZero
+except DivideByZero:
+    print('Divide by zero')
+
+
