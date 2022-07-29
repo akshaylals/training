@@ -35,25 +35,50 @@ class Matrix:
                 raise Exception('Matrix columns do not match')
         self.__m = m
         self.__n = n
-        self.__matrix = a
+        self.__matrix = dict()
+        for i in range(self.__m):
+            for j in range(self.__n):
+                self.__matrix[(i, j)] = a[i][j]
     
     def __add__(self, __o: object) -> object:
         t = []
         if self.__m == __o.__m and self.__n == __o.__n:
-            for x, y in zip(self.__matrix, __o.__matrix):
+            for i in range(self.__m):
                 tt = []
-                for a, b in zip(x, y):
-                    tt.append(a + b)
+                for j in range(self.__n):
+                    tt.append(self.__matrix.get((i, j), 0) + __o.__matrix.get((i, j), 0))
                 t.append(tt)
         return Matrix(self.__m, self.__n, t)
     
+    def __sub__(self, __o: object) -> object:
+        t = []
+        if self.__m == __o.__m and self.__n == __o.__n:
+            for i in range(self.__m):
+                tt = []
+                for j in range(self.__n):
+                    tt.append(self.__matrix.get((i, j), 0) - __o.__matrix.get((i, j), 0))
+                t.append(tt)
+        return Matrix(self.__m, self.__n, t)
+    
+    # def __mul__(self, __o: object) -> object:
+    #     if self.__n != __o.__m:
+    #     for i in range(self.__m):
+    #         for j in range
+    #     return Matrix()
+    
     def __str__(self) -> str:
-        return '\n'.join(['  '.join([str(j) for j in i]) for i in self.__matrix])
+        s = ''
+        for i in range(self.__m):
+            for j in range(self.__n):
+                s += f'{self.__matrix.get((i, j), 0)}\t'
+            s += '\n'
+        return s
 
 a = Matrix(2, 2, [[1, 2], [3, 4]])
 b = Matrix(2, 2, [[5, 6], [7, 8]])
 
 print(a + b)
+print(a - b)
 
 
 class Car:
