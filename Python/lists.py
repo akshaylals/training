@@ -41,3 +41,23 @@ print(studentsName + studentsName)
 # list duplication/multiplication usign * operator
 print(studentsName * 3)
 
+# create a copy of a list with some processing/condition checks
+# without implementing the comprehension just using a for loop
+words = ['hello', 'world', 'how', 'are', 'you']
+newlist = []
+
+for word in words:
+    if 'o' in word:
+        newlist.append(word)
+
+print(newlist)
+
+print([word for word in words if 'o' in word])
+
+# print('\n'.join(tuple(map(lambda a, p = int(input('Enter power: ')): f'{a} ^ {p} = {a ** p}', [int(a) for a in input('Enter list of numbers: ').split()]))))
+
+newlist = ['hello' for word in words]
+print(newlist)
+
+newlist = [word if word != 'hello' else 'hi' for word in words]
+print(newlist)
