@@ -1,0 +1,92 @@
+/* Universal selector */
+/* *{
+    color: green;
+} */
+
+/* type selector */
+/* p {
+    width: 120px;
+    height: 30px;
+    padding: 20px;
+    margin: 30px;
+    border: 2px solid;
+    font-size: 14px;
+    color: red;
+} */
+
+/* class selector */
+/* .p2 {
+    color: blue;
+} */
+
+/* id selector */
+/* #p3 {
+    color: magenta;
+} */
+
+/* Attribute selector */
+/* input[type="button"] {
+    background-color: blue;
+    color: white;
+    width: 10%;
+} */
+
+/* grouping of selectors */
+/* p, h1 {
+    color: gray;
+} */
+
+/* Pseudo class selector */
+/* a:hover {
+    outline: 2px dotted green;
+} */
+
+/* pseudo element */
+/* p::first-letter {
+    color: green;
+    font-weight: bold;
+    font-size: 25px;
+} */
+
+/* :-P
+/* p:hover:first-letter {
+    color: red;
+    font-style: italic;
+}
+
+h1{
+    background-color: blue;
+    color: white;
+}
+
+div{
+    background-color: yellow;
+    padding: 40px;
+    border-style: dashed;
+    border-width: 3px;
+    border-left-width: 10px;
+    border-right-width: 10px;
+    color: green;
+}
+
+h2{
+    font-size: 1.5em;
+    background-color: blue;
+    margin: 20px;
+    padding: 40px;
+} */
+
+#nav1{
+    float: left;
+    width: 200px;
+}
+
+#nav2 {
+    float: right;
+    width: 200px;
+}
+
+#content{
+    /* top right bottom left */
+    margin: 0 200px 0 200px;
+}
