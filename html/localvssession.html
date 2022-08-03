@@ -1,0 +1,47 @@
+<!-- Session Storage Example -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Local vs Session Storage</title>
+</head>
+<body>
+    <div id="container">
+        <button onclick="counter()">Click me</button>
+        <button onclick="remove()">Reset</button><br>
+        Local Storage: <span id="loc"></span><br>
+        Session Storage: <span id="sess"></span>
+    </div>
+
+    <script type="text/javascript">
+        if (typeof(Storage) === 'undefined'){
+            document.getElementById('container').innerHTML = 'Web Storage not supported in this browser'
+        }
+
+        function remove(){
+            if(localStorage.counter){
+                localStorage.removeItem('counter')
+            }
+            if(sessionStorage.counter){
+                sessionStorage.removeItem('counter')
+            }
+        }
+
+        function counter() {
+            if(sessionStorage.counter){
+                sessionStorage.counter = Number(sessionStorage.counter) + 1;
+            }else{
+                sessionStorage.counter = 1;
+            }
+
+            if(localStorage.counter){
+                localStorage.counter = Number(localStorage.counter) + 1;
+            }else{
+                localStorage.counter = 1;
+            }
+            
+            document.getElementById('sess').innerHTML = sessionStorage.counter;
+            document.getElementById('loc').innerHTML = localStorage.counter;
+        }
+    </script>
+</body>
+</html>

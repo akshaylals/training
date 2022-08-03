@@ -1,0 +1,53 @@
+<!-- Local Storage Example 1-->
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #output{
+            background-color: pink;
+            height: 50px;
+        }
+    </style>
+
+    <title>Local Storage Removal</title>
+</head>
+<body>
+    <div id="container">
+        <h2>Example of counter Using Local Storage</h2>
+
+        <button onclick="counter()">click me</button>
+        <button onclick="remove()">Remove hits</button>
+        
+        <div id="output">See the result here :</div>
+        
+        <p>click the counter button to see the total counts. </p>
+        <p>If you will close the browser still it will not reset. </p>
+        <p>If you click Remove hits it will delete hits from localStorage</p>
+    </div>
+
+    <script type="text/javascript">
+        if (typeof(Storage) === 'undefined'){
+            document.getElementById('container').innerHTML = 'Web Storage not supported in this browser'
+        }
+
+        function remove(){
+            if(localStorage.hits){
+                localStorage.removeItem('hits')
+                document.getElementById('output').innerHTML = 'removed hits from localStorage'
+            }else{
+                document.getElementById('output').innerHTML = 'hits does not exist'
+            }
+        }
+        
+        function counter() {
+            if(localStorage.hits){
+                localStorage.hits = Number(localStorage.hits) + 1;
+            }else{
+                localStorage.hits = 1;
+            }
+            document.getElementById('output').innerHTML = "You have clicked counter button for "
+                                                            + localStorage.hits + " times";
+        }
+    </script>
+</body>
+</html>  
