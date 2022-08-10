@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <input type="text" id="myname" value="test">
+    <button id="btn1" onclick="handleClick()">Click me</button> -->
+
+    <input type="text" id="myname" value="test">
+    <button id="btn1">Click me</button>
+</body>
+<script>
+    var handleClick = function (event){
+        alert(document.getElementById('myname').value)
+        document.getElementById('myname').value = 0
+    }
+
+    const btn1 = document.querySelector('#btn1')
+    btn1.addEventListener('click', handleClick)
+</script>
+</html>

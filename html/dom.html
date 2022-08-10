@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <div id="header">Thsi is the heading of the page</div>
+    <p>Hello</p>
+    <p>World</p>
+    <h2 id="myh2elementid">Just an h2 for demo</h2>
+    <h3 class="myh3elementclass">Just an h3 for demo</h3>
+    <input type="text" name="txtcustname" id="mytxtbox" value="Your name">
+    <button class="btn">Button</button>
+</body>
+<!-- naming conv
+    textbox -> txtname, txtaddress
+    button  -> btnsubmit, btnsubmit, btnfetch
+    image   -> imgphoto, imgbackground
+    select  -> selectname, selname
+ -->
+<script>
+    var myel = document.getElementsByTagName('p')
+    console.log(myel);
+
+    var myh2withid = document.getElementById('myh2elementid')
+    console.log(myh2withid);
+
+    var myh3withclass = document.getElementsByClassName('myh3elementclass')
+    console.log(myh3withclass);
+
+    var myheaderwithid = document.querySelector('#header')
+    console.log(myheaderwithid);
+
+    var myallbtns = document.querySelectorAll('.btn')
+    console.log(myallbtns);
+
+    // fetching values/data inside the heml element after selecting it
+    // getting the text content inside an element
+    console.log(myel[0].textContent);
+
+    var mytxtname = document.getElementsByName('txtcustname')
+    console.log(mytxtname[0].value);
+</script>
+</html>
