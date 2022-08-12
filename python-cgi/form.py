@@ -3,7 +3,6 @@
 print('content-type: text/html')
 
 import cgitb
-from email import message
 cgitb.enable()
 
 import cgi
