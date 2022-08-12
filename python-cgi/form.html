@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <form enctype="multipart/form-data" action="form.py" method="post">
+        <label>First Name: <input type="text" name="first_name"></label><br>
+        <label>Last Name: <input type="text" name="last_name"></label><br>
+        <label><input type="checkbox" name="vehicle" value="car">Has Car</label>
+        <label><input type="checkbox" name="vehicle" value="bike">Has Bike</label><br>
+        Gender: 
+        <label><input type="radio" name="gender" value="male"> Male</label>
+        <label><input type="radio" name="gender" value="female"> Female </label><br>
+        <label>About you: <textarea name="about" cols="30" rows="5">Enter your details</textarea></label>
+        <label>Profile Image: <input type="file" name="file"></label>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
