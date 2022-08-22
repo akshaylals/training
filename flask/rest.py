@@ -62,7 +62,17 @@ def put_book(id):
     book[0]['author'] = request.json['author']
 
     return jsonify({'book': book})
-    
+
+@app.route('/books/<int:id>', methods=['DELETE'])
+def delete_book(id):
+    book = [book for book in books if book['id'] == id]
+
+    if len(book) == 0:
+        abort(404)
+    books.remove(book[0])
+
+    return jsonify({}), 204
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
